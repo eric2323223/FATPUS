@@ -1,0 +1,11 @@
+	if((currentScreenKey === SERVERINITIATEDFLAG) && (actionKeyName === '')) {
+	    var values = workflowMessage.getValues();
+		if (conditionName === 'double'){
+	          var doubledata = values.getData("AllMBODataType_type_DOUBLE_attribKey");
+	          var doublevalue = doubledata.getValue();
+	          if(doublevalue != "1"){
+	          	return true; 
+	          }
+	  	}
+}
+	 return false;

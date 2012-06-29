@@ -1,0 +1,37 @@
+	
+
+	var i =  workflowMessage.getValues().getData("AllDT_int1_attribKey").getValue();
+	var s =  workflowMessage.getValues().getData("AllDT_string1_attribKey").getValue();
+	var ss =  workflowMessage.getValues().getData("AllDT_string2_attribKey").getValue();
+	var l =  workflowMessage.getValues().getData("AllDT_long1_attribKey").getValue();
+	var d =  workflowMessage.getValues().getData("AllDT_date1_attribKey").getValue();
+	var dt =  workflowMessage.getValues().getData("AllDT_datetime1_attribKey").getValue();
+	var t =  workflowMessage.getValues().getData("AllDT_time1_attribKey").getValue();
+	var dc =  workflowMessage.getValues().getData("AllDT_decimal1_attribKey").getValue();
+	var f =  workflowMessage.getValues().getData("AllDT_float1_attribKey").getValue();
+	var dou =  workflowMessage.getValues().getData("AllDT_double1_attribKey").getValue();
+	var b =  workflowMessage.getValues().getData("AllDT_bool1_attribKey").getValue();
+	var by =  workflowMessage.getValues().getData("AllDT_byte1_attribKey").getValue();
+	var st =  workflowMessage.getValues().getData("AllDT_short1_attribKey").getValue();
+	
+	if((currentScreenKey === "AllDTdeleteinstance") && (actionKeyName === 'Online_Request')) {
+		// conditional start screen uses this magic screen key and the empty action name.
+		if( conditionName === 'c1' && i === '1'
+			&& s==='1    ' 
+				&& ss==='1' 
+					&& l==='1' 
+						&& d==='2012-01-03' 
+								&& dt==='2012-01-03T00:00:00'
+								&& t==='12:25:13' 
+									&& dc==='1' 
+										&& f==='1' 
+											&& dou==='1' 
+												&& b==='false' 
+													&& by==='1' 
+														&& st==='1'
+														) {
+			// custom logic
+			return true;
+		}
+	}
+	return false;

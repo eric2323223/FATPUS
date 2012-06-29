@@ -1,0 +1,16 @@
+if((currentScreenKey === SERVERINITIATEDFLAG) && (actionKeyName === '')) {
+    var values = workflowMessage.getValues();
+    if ((conditionName === 'compound')){
+	 var strdata = values.getData("AllMBODataType_type_STRING_attribKey");
+	 var booldata = values.getData("AllMBODataType_type_BOOLEAN_attribKey");
+	 var dtdata = values.getData("AllMBODataType_type_DATETIME_attribKey");
+	 var strvalue = strdata.getValue();
+	 var boolvalue = booldata.getValue();
+	 var dtvalue = dtdata.getValue();
+	   if((strvalue == "a")&&(boolvalue == "True")&&(dtvalue == "2010-08-08T20:00:00")){
+	 return true; 
+              }
+           }
+        }
+	  return false;
+

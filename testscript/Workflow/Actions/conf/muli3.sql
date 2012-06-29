@@ -1,0 +1,32 @@
+DROP TABLE IF EXISTS Customer;
+DROP TABLE IF EXISTS SalesOrder;
+DROP TABLE IF EXISTS Item;
+
+CREATE TABLE dba.Customer (
+cid INT IDENTITY PRIMARY KEY, 
+fname VARCHAR(15) NOT NULL, 
+lname VARCHAR(20) NOT NULL, 
+address VARCHAR(35) NOT NULL, 
+city VARCHAR(20) NOT NULL, 
+state VARCHAR(2) NOT NULL, 
+zip VARCHAR(10) NOT NULL, 
+phone VARCHAR(12) NOT NULL, 
+company_name VARCHAR(35) NULL, 
+);
+
+CREATE TABLE dba.SalesOrder (
+oid INT IDENTITY PRIMARY KEY, 
+custid INT NOT NULL, 
+order_date DATE NOT NULL, 
+region VARCHAR(7) NULL, 
+);
+ALTER TABLE dba.SalesOrder ADD CONSTRAINT ky_so_customer NOT NULL FOREIGN KEY (custid)
+ REFERENCES dba.customer (cid);
+
+CREATE TABLE dba.Item (
+itemid INT IDENTITY PRIMARY KEY, 
+orderid INT NOT NULL, 
+product VARCHAR(10) NULL, 
+);
+ALTER TABLE dba.Item ADD CONSTRAINT ky_so_order NOT NULL FOREIGN KEY (orderid)
+ REFERENCES dba.SalesOrder (oid);

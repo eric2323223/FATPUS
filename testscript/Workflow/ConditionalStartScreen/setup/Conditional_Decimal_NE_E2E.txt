@@ -1,0 +1,14 @@
+	if((currentScreenKey === SERVERINITIATEDFLAG) && (actionKeyName === '')) {
+	     var values = workflowMessage.getValues();
+	     if (conditionName === 'decimal'){
+	  		 var decimaldata = values.getData("AllMBODataType_type_DECIMAL_attribKey");
+	           var decimalvalue = decimaldata.getValue();
+	           if(decimalvalue != "1"){
+	           	return true; 
+	           }
+	  	}
+}
+	 return false;
+
+
+	  	

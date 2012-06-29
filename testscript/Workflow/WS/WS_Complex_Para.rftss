@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="ASCII"?>
+<com.ibm.rational.test.ft.visualscript:RFTScript xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.rational.test.ft.visualscript="http:///com/ibm/rational/test/ft/visualscript.ecore" name="WS_Complex_Para" package="testscript.Workflow.WS" userName="yangg" date="Apr 11, 2012" time="8:24:12 PM" sinceDate="2012/04/11" hostName="WinNT Version 5.1  Build 2600 (S)" keywordSteps="">
+  <testElements xsi:type="com.ibm.rational.test.ft.visualscript:Comment" value="// TODO Insert code here&#xD;&#xA;" elementType="Comment"/>
+</com.ibm.rational.test.ft.visualscript:RFTScript>

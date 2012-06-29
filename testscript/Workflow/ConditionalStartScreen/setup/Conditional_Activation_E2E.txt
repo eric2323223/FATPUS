@@ -1,0 +1,11 @@
+	if((currentScreenKey === SERVERINITIATEDFLAG||(currentScreenKey === "Activate")) && (actionKeyName === '')) {
+			 var values = workflowMessage.getValues();
+	  	if (conditionName === 'string'){
+	          var strdata = values.getData("AllMBODataType_type_STRING_attribKey");
+	          var strvalue = strdata.getValue();
+	          if(strvalue == "a"){
+	          	return true; 
+	          }   
+	  	}
+}
+	 return false;

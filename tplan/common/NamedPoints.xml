@@ -1,0 +1,6 @@
+<context name="emulator" type="windows mobile" model="professional" version="6.5">
+  <NamedPoints datum="winLogo">
+    <NamePoint name="testPoint1" point="-197,-290" /> 
+    <NamePoint name="testPoint2" point="100,100" /> 
+  </NamedPoints>
+</context>

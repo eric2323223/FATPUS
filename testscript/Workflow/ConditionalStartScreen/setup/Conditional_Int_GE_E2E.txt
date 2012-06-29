@@ -1,0 +1,11 @@
+	if((currentScreenKey === SERVERINITIATEDFLAG) && (actionKeyName === '')) {
+	    var values = workflowMessage.getValues();
+		if (conditionName === 'int'){
+			 var intdata = values.getData("AllMBODataType_type_INT_attribKey");
+	         var intvalue = intdata.getValue();
+	         if(intvalue >= "1"){
+	         	return true; 
+	         }
+		}
+}
+	 return false; 

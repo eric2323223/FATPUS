@@ -1,0 +1,38 @@
+	
+
+	var i =  workflowMessage.getValues().getData("int1").getValue();
+	var s =  workflowMessage.getValues().getData("string1").getValue();
+	var ss =  workflowMessage.getValues().getData("string2").getValue();
+	var l =  workflowMessage.getValues().getData("long1").getValue();
+	var d =  workflowMessage.getValues().getData("date1").getValue();
+	var dt =  workflowMessage.getValues().getData("datetime1").getValue();
+	var t =  workflowMessage.getValues().getData("time1").getValue();
+	var dc =  workflowMessage.getValues().getData("decimal1").getValue();
+	var f =  workflowMessage.getValues().getData("float1").getValue();
+	var dou =  workflowMessage.getValues().getData("double1").getValue();
+	var b =  workflowMessage.getValues().getData("bool1").getValue();
+	var by =  workflowMessage.getValues().getData("byte1").getValue();
+	var st =  workflowMessage.getValues().getData("short1").getValue();
+	
+	if((currentScreenKey === "AllDTdeleteinstance") && (actionKeyName === 'Online_Request')) {
+		// conditional start screen uses this magic screen key and the empty action name.
+		if( conditionName === 'c1' && i === '1'
+			&& s==='1' 
+				&& ss==='1' 
+					&& l==='1' 
+						&& d==='2012-01-03' 
+							//&& dt==='2012-01-03T00:00:00' //used in BB
+								&& dt==='2012-01-03 00:00:00.0' //used in ANDROID 
+								&& t==='12:25:13' 
+									&& dc==='1' 
+										&& f==='1' 
+											&& dou==='1' 
+												&& b==='false' 
+													&& by==='1' 
+														&& st==='1') {
+			// custom logic
+			return true;
+		}
+	}
+	return false;
+

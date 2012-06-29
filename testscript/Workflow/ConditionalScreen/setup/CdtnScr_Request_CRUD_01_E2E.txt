@@ -1,0 +1,17 @@
+	
+	
+
+	//var list = workflowMessage.getValues().getData("States").getValue();
+	//var value = workflowMessage.getValues().getData("States_state_id_attribKey").getValue();
+	var value = workflowMessage.getValues().getData("id").getValue();
+	if((currentScreenKey === "Statesupdateinstance"||currentScreenKey === "Statescreate"||currentScreenKey === "Statesdeleteinstance") && (actionKeyName === 'Online_Request')) {
+
+		// conditional start screen uses this magic screen key and the empty action name.
+		if( conditionName === 'c1' && (value === "AB" || value === "CH")) {
+			// custom logic
+			return true;
+		}
+	}
+	return false;
+	
+	

@@ -1,0 +1,39 @@
+package tplan.Workflow.Controls.android.Locale_specific;
+import resources.tplan.Workflow.Controls.android.Locale_specific.ScriptHelper;
+import com.rational.test.ft.*;
+import com.rational.test.ft.object.interfaces.*;
+import com.rational.test.ft.object.interfaces.SAP.*;
+import com.rational.test.ft.object.interfaces.WPF.*;
+import com.rational.test.ft.object.interfaces.dojo.*;
+import com.rational.test.ft.object.interfaces.siebel.*;
+import com.rational.test.ft.object.interfaces.flex.*;
+import com.rational.test.ft.script.*;
+import com.rational.test.ft.value.*;
+import com.rational.test.ft.vp.*;
+import component.entity.tplan.AndroidTestScript;
+
+/**
+ * Description   : Functional Test Script
+ * @author ffan
+ */
+public class Script extends AndroidTestScript{
+
+	@Override
+	public void doTest() throws Exception {
+//		connect("10.35.180.238", "test");
+		connect("10.56.252.156", "test");
+		
+//		System.out.println(exitCode());
+//		startWorkflowApplication("sybase");
+		
+		clickOn("wf_item_t1");
+//		waitForDispear("inprogress_toast_android");
+		
+		waitForMatch("show_T_olc_record",10);
+		
+		//need to enter into the detail screen to VP:
+		waitForMatch("show_T_olcDetail_c_d",10);
+		
+	}
+}
+

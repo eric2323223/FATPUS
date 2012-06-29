@@ -1,0 +1,17 @@
+if((currentScreenKey === SERVERINITIATEDFLAG) && (actionKeyName === '')) {
+    if (conditionName === 'list1') {
+            var values = workflowMessage.getValues();
+            var m = workflowMessage.serializeToString();
+            var expenseTracking = values.getData("AllMBODataType");      
+      
+            var etList = expenseTracking.getValue();
+            var values = etList[0];//the first list record
+            var strdata = values.getData("AllMBODataType_type_STRING_attribKey");
+            var strvalue = strdata.getValue();
+            if(strvalue === "a"){
+            	return true; 
+            }   
+        }
+    }
+
+    return false;

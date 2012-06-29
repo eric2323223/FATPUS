@@ -1,0 +1,13 @@
+    if((currentScreenKey === SERVERINITIATEDFLAG) && (actionKeyName === '')) {
+         if (conditionName === 'ThreeRecord') {
+            var values = workflowMessage.getValues();
+            var m = workflowMessage.serializeToString();
+            var expenseTracking = values.getData("AllMBODataType");
+            var etList = expenseTracking.getValue();
+            var count = etList.length;
+            if (count === 3) {
+                return true;
+            }
+        }
+}
+               return false;  

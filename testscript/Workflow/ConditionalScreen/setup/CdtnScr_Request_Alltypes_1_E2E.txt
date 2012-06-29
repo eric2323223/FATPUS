@@ -1,0 +1,9 @@
+		
+	var value = workflowMessage.getValues().getData("id").getValue();
+	if((currentScreenKey === "Statesupdateinstance") && (actionName === 'Online_Request')) {
+		// conditional start screen uses this magic screen key and the empty action name.
+		if( conditionName === 'c1' && value === "AB") {
+			// custom logic
+			return true;
+		}
+	}

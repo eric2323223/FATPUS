@@ -1,0 +1,72 @@
+<project name="sample" default="RunScript">
+
+	<property name="rational.jar" value="C:/Program Files/IBM/SDP\FunctionalTester/bin/rational_ft.jar"/>
+	<property name="rft.jvm.path" value="C:/Program Files/IBM/SDP/jdk"/>
+
+	<property name="project.path" value="C:\Documents and Settings\eric\IBM\rationalsdp\workspace\UEP_ET" />
+	<property name="third.party.lib.path" value="${project.path}\lib"/>
+	<property name="build.compiler" value="modern" />
+	<property name="rft.shared.libs.path" value="C:/Program Files/IBM/IBMIMShared/plugins" />
+	<property name="rft.core.lib" value="${rft.shared.libs.path}/com.rational.test.ft.core_7.1.0.v200809301411.jar" />
+	<property name="rft.wpf.lib" value="${rft.shared.libs.path}/com.rational.test.ft.wpf_8.0.0.v200809301411.jar" />
+	
+	<path id="libraries">
+		<fileset dir="${third.party.lib.path}">
+			<include name="*.jar"/>
+		</fileset>
+		<fileset dir="${rft.shared.libs.path}">
+			<include name="**/*.jar"/>
+		</fileset>
+		<pathelement path="${rational.jar}" />
+		<pathelement path="${project.path}"/>
+	</path>
+
+	<target name="RunScript">
+		<echo message="run scripts"/>
+		<java jvm="${rft.jvm.path}/bin/java" fork="true" classname="com.rational.test.ft.rational_ft"> 
+			<classpath refid="libraries" />
+			<arg line='-datastore "${project.path}"'/>
+			<arg line='-rt.bring_up_logviewer "false"'/>
+			<arg line='-rt.interactive "false"'/>
+			<arg line='-playback testscript.Workflow.Keys.Action_ParameterMapping'/>
+		</java>
+	</target>
+
+	<!--java -cp "c:\Program Files\IBM\SDP\FunctionalTester\bin\rational_ft.jar";c:\project\UEP_ET;c:\project\UEP_ET\lib\*  com.rational.test.ft.rational_ft -datastore c:\project\UEP_ET -playback testscript.Workflow.StartPoint.SP_Activate_DB_DT-->
+	<target name="CompileScript">
+		<echo message="compile scripts"/>
+		<java classpath="${rational.jar};${third.party.lib.path};${project.path}" jvm="${rft.jvm.path}/bin/java" fork="true" classname="com.rational.test.ft.rational_ft"> 
+			<arg line='-datastore "${project.path}"'/>
+			<arg line='-compile "testscript.Auxiliary.CloseWelcomeView"'/>
+		</java>
+	</target>
+	
+	<!--ant -f build.xml -Dscriptname="testscript.Workflow.StartPoint.SP_Activate_DB_DT"-->
+	<target name="CompileAndRunScript">
+		<echo message="compile and run scripts"/>
+		<java jvm="${rft.jvm.path}/bin/java" fork="true" classname="com.rational.test.ft.rational_ft"> 
+			<classpath refid="libraries" />
+			<arg line='-datastore "${project.path}"'/>
+			<arg line='-rt.bring_up_logviewer "false"'/>
+			<arg line='-rt.interactive "false"'/>
+			<arg line='-compile ${scriptname}'/>
+			<arg line='-playback ${scriptname}'/>
+		</java>
+	</target>
+	
+	<target name="compile">
+		<echo message="compile"/>
+		
+		<javac 	debug="on"
+			nowarn="true"
+			executable="${rft.jvm.path}/bin/javac.exe"
+			destdir="${project.path}">
+			<classpath refid="libraries" />
+			<src path="${project.path}" />
+			<include name="com\**" />
+			<include name="component\**" />
+			
+		</javac>
+	</target>
+</project>
+

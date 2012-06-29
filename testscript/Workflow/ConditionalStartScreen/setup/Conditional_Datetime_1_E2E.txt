@@ -1,0 +1,14 @@
+	if((currentScreenKey === SERVERINITIATEDFLAG) && (actionKeyName === '')) {
+	 var values = workflowMessage.getValues();
+	    if (conditionName === 'datetime'){
+	  		 var dtdata = values.getData("AllMBODataType_type_DATETIME_attribKey");
+	           var dtvalue = dtdata.getValue();
+	           if(dtvalue == "2010-08-08T20:00:00"){
+	           	return true; 
+	           }
+	  	}
+}
+	 return false;
+
+
+	  	

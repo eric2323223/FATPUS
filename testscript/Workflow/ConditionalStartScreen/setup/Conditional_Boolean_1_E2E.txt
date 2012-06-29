@@ -1,0 +1,14 @@
+	if((currentScreenKey === SERVERINITIATEDFLAG) && (actionKeyName === '')) {
+	     var values = workflowMessage.getValues();
+	 	if (conditionName === 'bool'){
+	        var booldata = values.getData("AllMBODataType_type_BOOLEAN_attribKey");
+	        var boolvalue = booldata.getValue();
+	        if(boolvalue == "True"){
+	        	return true; 
+	        }
+		}
+}
+	 return false;
+
+
+	  	

@@ -1,0 +1,1834 @@
+<?xml version="1.0" ?>
+<definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" name="SUPWebServices" targetNamespace="http://servlet:8888/sampledb" xmlns:s3="http://servlet:8888/sampledb" xmlns="http://schemas.xmlsoap.org/wsdl/">
+ <types>
+  <s:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://servlet:8888/sampledb">
+   <s:complexType name="ImageListDataset">
+    <s:sequence>
+     <s:element name="rowset">
+      <s:complexType>
+       <s:sequence>
+        <s:element name="row" minOccurs="0" maxOccurs="unbounded">
+         <s:complexType>
+          <s:sequence>
+		<s:element minOccurs="0" maxOccurs="1" name="a" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="b" nillable="true" type="s:string" />
+          </s:sequence>
+         </s:complexType>
+        </s:element>
+       </s:sequence>
+      </s:complexType>
+     </s:element>
+    </s:sequence>
+   </s:complexType>
+   <s:complexType name="SalesDataDataset">
+    <s:sequence>
+     <s:element name="rowset">
+      <s:complexType>
+       <s:sequence>
+        <s:element name="row" minOccurs="0" maxOccurs="unbounded">
+         <s:complexType>
+          <s:sequence>
+		<s:element minOccurs="0" maxOccurs="1" name="description" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="prod_id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="sales_rep" nillable="true" type="s:string" />
+          </s:sequence>
+         </s:complexType>
+        </s:element>
+       </s:sequence>
+      </s:complexType>
+     </s:element>
+    </s:sequence>
+   </s:complexType>
+   <s:complexType name="ListSalesOrdersByCustIDDataset">
+    <s:sequence>
+     <s:element name="rowset">
+      <s:complexType>
+       <s:sequence>
+        <s:element name="row" minOccurs="0" maxOccurs="unbounded">
+         <s:complexType>
+          <s:sequence>
+		<s:element minOccurs="0" maxOccurs="1" name="id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="cust_id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="order_date" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="fin_code_id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="region" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="sales_rep" nillable="true" type="s:string" />
+          </s:sequence>
+         </s:complexType>
+        </s:element>
+       </s:sequence>
+      </s:complexType>
+     </s:element>
+    </s:sequence>
+   </s:complexType>
+   <s:complexType name="ListCustomersForcustomerIDDataset">
+    <s:sequence>
+     <s:element name="rowset">
+      <s:complexType>
+       <s:sequence>
+        <s:element name="row" minOccurs="0" maxOccurs="unbounded">
+         <s:complexType>
+          <s:sequence>
+		<s:element minOccurs="0" maxOccurs="1" name="id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="fname" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="lname" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="address" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="city" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="state" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="zip" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="phone" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="company_name" nillable="true" type="s:string" />
+          </s:sequence>
+         </s:complexType>
+        </s:element>
+       </s:sequence>
+      </s:complexType>
+     </s:element>
+    </s:sequence>
+   </s:complexType>
+   <s:complexType name="SP_MultiResultSetDataset">
+    <s:sequence>
+     <s:element name="rowset">
+      <s:complexType>
+       <s:sequence>
+        <s:element name="row" minOccurs="0" maxOccurs="unbounded">
+         <s:complexType>
+          <s:sequence>
+		<s:element minOccurs="0" maxOccurs="1" name="bonus_amount" nillable="true" type="s:string" />
+          </s:sequence>
+         </s:complexType>
+        </s:element>
+       </s:sequence>
+      </s:complexType>
+     </s:element>
+    </s:sequence>
+   </s:complexType>
+   <s:complexType name="listStatesDataset">
+    <s:sequence>
+     <s:element name="rowset">
+      <s:complexType>
+       <s:sequence>
+        <s:element name="row" minOccurs="0" maxOccurs="unbounded">
+         <s:complexType>
+          <s:sequence>
+		<s:element minOccurs="0" maxOccurs="1" name="country" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="region" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="state_capital" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="state_id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="state_name" nillable="true" type="s:string" />
+          </s:sequence>
+         </s:complexType>
+        </s:element>
+       </s:sequence>
+      </s:complexType>
+     </s:element>
+    </s:sequence>
+   </s:complexType>
+   <s:complexType name="listTerminated_employeesDataset">
+    <s:sequence>
+     <s:element name="rowset">
+      <s:complexType>
+       <s:sequence>
+        <s:element name="row" minOccurs="0" maxOccurs="unbounded">
+         <s:complexType>
+          <s:sequence>
+		<s:element minOccurs="0" maxOccurs="1" name="city" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="dept_id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="emp_fname" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="emp_id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="emp_lname" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="phone" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="salary" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="sex" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="ss_number" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="start_date" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="state" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="street" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="termination_date" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="zip_code" nillable="true" type="s:string" />
+          </s:sequence>
+         </s:complexType>
+        </s:element>
+       </s:sequence>
+      </s:complexType>
+     </s:element>
+    </s:sequence>
+   </s:complexType>
+   <s:complexType name="ListCust_AuthorizationDataset">
+    <s:sequence>
+     <s:element name="rowset">
+      <s:complexType>
+       <s:sequence>
+        <s:element name="row" minOccurs="0" maxOccurs="unbounded">
+         <s:complexType>
+          <s:sequence>
+		<s:element minOccurs="0" maxOccurs="1" name="id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="fname" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="lname" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="address" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="city" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="state" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="zip" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="phone" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="company_name" nillable="true" type="s:string" />
+          </s:sequence>
+         </s:complexType>
+        </s:element>
+       </s:sequence>
+      </s:complexType>
+     </s:element>
+    </s:sequence>
+   </s:complexType>
+   <s:complexType name="UserInfoByIDDataset">
+    <s:sequence>
+     <s:element name="rowset">
+      <s:complexType>
+       <s:sequence>
+        <s:element name="row" minOccurs="0" maxOccurs="unbounded">
+         <s:complexType>
+          <s:sequence>
+		<s:element minOccurs="0" maxOccurs="1" name="id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="name" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="address" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="birthday" nillable="true" type="s:string" />
+          </s:sequence>
+         </s:complexType>
+        </s:element>
+       </s:sequence>
+      </s:complexType>
+     </s:element>
+    </s:sequence>
+   </s:complexType>
+   <s:complexType name="UserInfoListDataset">
+    <s:sequence>
+     <s:element name="rowset">
+      <s:complexType>
+       <s:sequence>
+        <s:element name="row" minOccurs="0" maxOccurs="unbounded">
+         <s:complexType>
+          <s:sequence>
+		<s:element minOccurs="0" maxOccurs="1" name="id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="name" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="address" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="birthday" nillable="true" type="s:string" />
+          </s:sequence>
+         </s:complexType>
+        </s:element>
+       </s:sequence>
+      </s:complexType>
+     </s:element>
+    </s:sequence>
+   </s:complexType>
+   <s:complexType name="SP_AllDataTypeDataset">
+    <s:sequence>
+     <s:element name="rowset">
+      <s:complexType>
+       <s:sequence>
+        <s:element name="row" minOccurs="0" maxOccurs="unbounded">
+         <s:complexType>
+          <s:sequence>
+		<s:element minOccurs="0" maxOccurs="1" name="c1" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c2" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c3" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c4" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c5" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c6" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c7" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c8" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c9" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c10" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c11" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c12" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c13" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c14" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c15" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c16" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c17" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c18" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c19" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c20" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c21" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c22" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c23" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c24" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c25" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c26" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c27" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c28" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c29" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c30" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c31" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c32" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c33" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c34" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c35" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c36" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c37" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c38" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c39" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c40" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="c41" nillable="true" type="s:string" />
+          </s:sequence>
+         </s:complexType>
+        </s:element>
+       </s:sequence>
+      </s:complexType>
+     </s:element>
+    </s:sequence>
+   </s:complexType>
+   <s:complexType name="BonusAmountByEmpIDDataset">
+    <s:sequence>
+     <s:element name="rowset">
+      <s:complexType>
+       <s:sequence>
+        <s:element name="row" minOccurs="0" maxOccurs="unbounded">
+         <s:complexType>
+          <s:sequence>
+		<s:element minOccurs="0" maxOccurs="1" name="bonus_amount" nillable="true" type="s:string" />
+          </s:sequence>
+         </s:complexType>
+        </s:element>
+       </s:sequence>
+      </s:complexType>
+     </s:element>
+    </s:sequence>
+   </s:complexType>
+   <s:complexType name="ListCustomersDataset">
+    <s:sequence>
+     <s:element name="rowset">
+      <s:complexType>
+       <s:sequence>
+        <s:element name="row" minOccurs="0" maxOccurs="unbounded">
+         <s:complexType>
+          <s:sequence>
+		<s:element minOccurs="0" maxOccurs="1" name="id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="fname" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="lname" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="address" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="city" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="state" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="zip" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="phone" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="company_name" nillable="true" type="s:string" />
+          </s:sequence>
+         </s:complexType>
+        </s:element>
+       </s:sequence>
+      </s:complexType>
+     </s:element>
+    </s:sequence>
+   </s:complexType>
+   <s:complexType name="SalesOrdersByCustomerIDDataset">
+    <s:sequence>
+     <s:element name="rowset">
+      <s:complexType>
+       <s:sequence>
+        <s:element name="row" minOccurs="0" maxOccurs="unbounded">
+         <s:complexType>
+          <s:sequence>
+		<s:element minOccurs="0" maxOccurs="1" name="id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="cust_id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="order_date" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="fin_code_id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="region" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="sales_rep" nillable="true" type="s:string" />
+          </s:sequence>
+         </s:complexType>
+        </s:element>
+       </s:sequence>
+      </s:complexType>
+     </s:element>
+    </s:sequence>
+   </s:complexType>
+   <s:complexType name="ListSalesOrdersDataset">
+    <s:sequence>
+     <s:element name="rowset">
+      <s:complexType>
+       <s:sequence>
+        <s:element name="row" minOccurs="0" maxOccurs="unbounded">
+         <s:complexType>
+          <s:sequence>
+		<s:element minOccurs="0" maxOccurs="1" name="id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="cust_id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="order_date" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="fin_code_id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="region" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="sales_rep" nillable="true" type="s:string" />
+          </s:sequence>
+         </s:complexType>
+        </s:element>
+       </s:sequence>
+      </s:complexType>
+     </s:element>
+    </s:sequence>
+   </s:complexType>
+   <s:complexType name="ViewSalesDataDataset">
+    <s:sequence>
+     <s:element name="rowset">
+      <s:complexType>
+       <s:sequence>
+        <s:element name="row" minOccurs="0" maxOccurs="unbounded">
+         <s:complexType>
+          <s:sequence>
+		<s:element minOccurs="0" maxOccurs="1" name="description" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="prod_id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="Total" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="sales_rep" nillable="true" type="s:string" />
+          </s:sequence>
+         </s:complexType>
+        </s:element>
+       </s:sequence>
+      </s:complexType>
+     </s:element>
+    </s:sequence>
+   </s:complexType>
+   <s:complexType name="listSalesOrderItemsDataset">
+    <s:sequence>
+     <s:element name="rowset">
+      <s:complexType>
+       <s:sequence>
+        <s:element name="row" minOccurs="0" maxOccurs="unbounded">
+         <s:complexType>
+          <s:sequence>
+		<s:element minOccurs="0" maxOccurs="1" name="id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="line_id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="prod_id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="quantity" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="ship_date" nillable="true" type="s:string" />
+          </s:sequence>
+         </s:complexType>
+        </s:element>
+       </s:sequence>
+      </s:complexType>
+     </s:element>
+    </s:sequence>
+   </s:complexType>
+   <s:complexType name="ListEmployeesDataset">
+    <s:sequence>
+     <s:element name="rowset">
+      <s:complexType>
+       <s:sequence>
+        <s:element name="row" minOccurs="0" maxOccurs="unbounded">
+         <s:complexType>
+          <s:sequence>
+		<s:element minOccurs="0" maxOccurs="1" name="emp_id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="manager_id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="emp_fname" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="emp_lname" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="dept_id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="city" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="state" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="zip_code" nillable="true" type="s:string" />
+          </s:sequence>
+         </s:complexType>
+        </s:element>
+       </s:sequence>
+      </s:complexType>
+     </s:element>
+    </s:sequence>
+   </s:complexType>
+   <s:complexType name="ListDepartmentsDataset">
+    <s:sequence>
+     <s:element name="rowset">
+      <s:complexType>
+       <s:sequence>
+        <s:element name="row" minOccurs="0" maxOccurs="unbounded">
+         <s:complexType>
+          <s:sequence>
+		<s:element minOccurs="0" maxOccurs="1" name="dept_head_id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="dept_id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="dept_name" nillable="true" type="s:string" />
+          </s:sequence>
+         </s:complexType>
+        </s:element>
+       </s:sequence>
+      </s:complexType>
+     </s:element>
+    </s:sequence>
+   </s:complexType>
+   <s:complexType name="off_listDepartmentsDataset">
+    <s:sequence>
+     <s:element name="rowset">
+      <s:complexType>
+       <s:sequence>
+        <s:element name="row" minOccurs="0" maxOccurs="unbounded">
+         <s:complexType>
+          <s:sequence>
+		<s:element minOccurs="0" maxOccurs="1" name="dept_head_id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="dept_id" nillable="true" type="s:string" />
+		<s:element minOccurs="0" maxOccurs="1" name="dept_name" nillable="true" type="s:string" />
+          </s:sequence>
+         </s:complexType>
+        </s:element>
+       </s:sequence>
+      </s:complexType>
+     </s:element>
+    </s:sequence>
+   </s:complexType>
+   <s:complexType name="SimpleDataset">
+    <s:sequence>
+     <s:element name="rowset">
+      <s:complexType>
+       <s:sequence>
+        <s:element name="row" minOccurs="0" maxOccurs="unbounded">
+         <s:complexType>
+          <s:sequence>
+		<s:any minOccurs="0" maxOccurs="unbounded"/>
+          </s:sequence>
+         </s:complexType>
+        </s:element>
+       </s:sequence>
+      </s:complexType>
+     </s:element>
+    </s:sequence>
+   </s:complexType>
+   <s:element name="ImageList">
+    <s:complexType>
+     <s:sequence>
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="ImageListResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="ImageListResult" type="s3:ImageListDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="InsertImage">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="0" maxOccurs="1" name="a" nillable="true" type="s:string" />      <s:element minOccurs="0" maxOccurs="1" name="b" nillable="true" type="s:string" />     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="InsertImageResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="InsertImageResult" type="s3:SimpleDataset" />
+      <s:element name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="SalesData">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="0" maxOccurs="1" name="SalesRep" nillable="true" type="s:string" />     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="SalesDataResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="SalesDataResult" type="s3:SalesDataDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="ListSalesOrdersByCustID">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="0" maxOccurs="1" name="SalesRep" nillable="true" type="s:string" />     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="ListSalesOrdersByCustIDResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="ListSalesOrdersByCustIDResult" type="s3:ListSalesOrdersByCustIDDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="ListCustomersForcustomerID">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="0" maxOccurs="1" name="SalesRep" nillable="true" type="s:string" />     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="ListCustomersForcustomerIDResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="ListCustomersForcustomerIDResult" type="s3:ListCustomersForcustomerIDDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="ListMultipleMBO">
+    <s:complexType>
+     <s:sequence>
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="ListMultipleMBOResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="ListMultipleMBOResult" type="s3:SimpleDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="SP_MultiResultSet">
+    <s:complexType>
+     <s:sequence>
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="SP_MultiResultSetResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="SP_MultiResultSetResult" type="s3:SP_MultiResultSetDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="sp_createDepartment2">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="0" maxOccurs="1" name="dept_head_id" nillable="true" type="s:string" />      <s:element minOccurs="0" maxOccurs="1" name="dept_id" nillable="true" type="s:string" />      <s:element minOccurs="0" maxOccurs="1" name="dept_name" nillable="true" type="s:string" />     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="sp_createDepartment2Response">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="sp_createDepartment2Result" type="s3:SimpleDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="sp_deleteDepartment2">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="0" maxOccurs="1" name="dept_id" nillable="true" type="s:string" />     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="sp_deleteDepartment2Response">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="sp_deleteDepartment2Result" type="s3:SimpleDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="sp_updateDepartment2">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="0" maxOccurs="1" name="dept_name" nillable="true" type="s:string" />      <s:element minOccurs="0" maxOccurs="1" name="dept_head_id" nillable="true" type="s:string" />      <s:element minOccurs="0" maxOccurs="1" name="dept_id" nillable="true" type="s:string" />     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="sp_updateDepartment2Response">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="sp_updateDepartment2Result" type="s3:SimpleDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="listStates">
+    <s:complexType>
+     <s:sequence>
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="listStatesResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="listStatesResult" type="s3:listStatesDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="listTerminated_employees">
+    <s:complexType>
+     <s:sequence>
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="listTerminated_employeesResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="listTerminated_employeesResult" type="s3:listTerminated_employeesDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="deleteDepartment">
+    <s:complexType>
+     <s:sequence>
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="deleteDepartmentResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="deleteDepartmentResult" type="s3:SimpleDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="updateDepartment">
+    <s:complexType>
+     <s:sequence>
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="updateDepartmentResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="updateDepartmentResult" type="s3:SimpleDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="createDepartment">
+    <s:complexType>
+     <s:sequence>
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="createDepartmentResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="createDepartmentResult" type="s3:SimpleDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="multiplembo">
+    <s:complexType>
+     <s:sequence>
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="multiplemboResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="multiplemboResult" type="s3:SimpleDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="ListCust_Authorization">
+    <s:complexType>
+     <s:sequence>
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="ListCust_AuthorizationResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="ListCust_AuthorizationResult" type="s3:ListCust_AuthorizationDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="multipleUser">
+    <s:complexType>
+     <s:sequence>
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="multipleUserResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="multipleUserResult" type="s3:SimpleDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="DeleteUser">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="0" maxOccurs="1" name="userID" nillable="true" type="s:string" />     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="DeleteUserResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="DeleteUserResult" type="s3:SimpleDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="UpdateUser">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="0" maxOccurs="1" name="userID" nillable="true" type="s:string" />      <s:element minOccurs="0" maxOccurs="1" name="userName" nillable="true" type="s:string" />      <s:element minOccurs="0" maxOccurs="1" name="userAddress" nillable="true" type="s:string" />      <s:element minOccurs="0" maxOccurs="1" name="userBirthday" nillable="true" type="s:string" />     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="UpdateUserResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="UpdateUserResult" type="s3:SimpleDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="InsertUser">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="0" maxOccurs="1" name="userName" nillable="true" type="s:string" />      <s:element minOccurs="0" maxOccurs="1" name="userAddress" nillable="true" type="s:string" />      <s:element minOccurs="0" maxOccurs="1" name="userBirthday" nillable="true" type="s:string" />     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="InsertUserResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="InsertUserResult" type="s3:SimpleDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="UserInfoByID">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="0" maxOccurs="1" name="userID" nillable="true" type="s:string" />     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="UserInfoByIDResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="UserInfoByIDResult" type="s3:UserInfoByIDDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="UserInfoList">
+    <s:complexType>
+     <s:sequence>
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="UserInfoListResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="UserInfoListResult" type="s3:UserInfoListDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="SP_AllDataType">
+    <s:complexType>
+     <s:sequence>
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="SP_AllDataTypeResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="SP_AllDataTypeResult" type="s3:SP_AllDataTypeDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="BonusAmountByEmpID">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="0" maxOccurs="1" name="id" nillable="true" type="s:string" />     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="BonusAmountByEmpIDResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="BonusAmountByEmpIDResult" type="s3:BonusAmountByEmpIDDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="ListCustomers">
+    <s:complexType>
+     <s:sequence>
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="ListCustomersResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="ListCustomersResult" type="s3:ListCustomersDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="SalesOrdersByCustomerID">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="0" maxOccurs="1" name="custID" nillable="true" type="s:string" />     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="SalesOrdersByCustomerIDResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="SalesOrdersByCustomerIDResult" type="s3:SalesOrdersByCustomerIDDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="ListSalesOrders">
+    <s:complexType>
+     <s:sequence>
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="ListSalesOrdersResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="ListSalesOrdersResult" type="s3:ListSalesOrdersDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="ViewSalesData">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="0" maxOccurs="1" name="salesRep" nillable="true" type="s:string" />     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="ViewSalesDataResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="ViewSalesDataResult" type="s3:ViewSalesDataDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="listSalesOrderItems">
+    <s:complexType>
+     <s:sequence>
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="listSalesOrderItemsResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="listSalesOrderItemsResult" type="s3:listSalesOrderItemsDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="createEmployee">
+    <s:complexType>
+     <s:sequence>
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="createEmployeeResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="createEmployeeResult" type="s3:SimpleDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="ListEmployees">
+    <s:complexType>
+     <s:sequence>
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="ListEmployeesResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="ListEmployeesResult" type="s3:ListEmployeesDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="ListDepartments">
+    <s:complexType>
+     <s:sequence>
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="ListDepartmentsResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="ListDepartmentsResult" type="s3:ListDepartmentsDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="UpdateSalesOrder">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="0" maxOccurs="1" name="ID" nillable="true" type="s:string" />      <s:element minOccurs="0" maxOccurs="1" name="shipDate" nillable="true" type="s:string" />     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="UpdateSalesOrderResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="UpdateSalesOrderResult" type="s3:SimpleDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="CreateSalesOrder">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="0" maxOccurs="1" name="custID" nillable="true" type="s:string" />      <s:element minOccurs="0" maxOccurs="1" name="fnCodeID" nillable="true" type="s:string" />      <s:element minOccurs="0" maxOccurs="1" name="orderDate" nillable="true" type="s:string" />      <s:element minOccurs="0" maxOccurs="1" name="region" nillable="true" type="s:string" />      <s:element minOccurs="0" maxOccurs="1" name="salesRep" nillable="true" type="s:string" />     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="CreateSalesOrderResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="CreateSalesOrderResult" type="s3:SimpleDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="off_listDepartments">
+    <s:complexType>
+     <s:sequence>
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="off_listDepartmentsResponse">
+    <s:complexType>
+     <s:sequence>
+      <s:element minOccurs="1" maxOccurs="1" name="off_listDepartmentsResult" type="s3:off_listDepartmentsDataset" />
+      <s:element minOccurs="0" name="sqlcode" type="s:int" />
+     </s:sequence>
+    </s:complexType>
+   </s:element>
+   <s:element name="error" type="s:string" />
+  </s:schema>
+ </types>
+ <message name="ImageListIn">
+  <part name="parameters" element="s3:ImageList" />
+ </message>
+ <message name="ImageListOut">
+  <part name="parameters" element="s3:ImageListResponse" />
+ </message>
+ <message name="InsertImageIn">
+  <part name="parameters" element="s3:InsertImage" />
+ </message>
+ <message name="InsertImageOut">
+  <part name="parameters" element="s3:InsertImageResponse" />
+ </message>
+ <message name="SalesDataIn">
+  <part name="parameters" element="s3:SalesData" />
+ </message>
+ <message name="SalesDataOut">
+  <part name="parameters" element="s3:SalesDataResponse" />
+ </message>
+ <message name="ListSalesOrdersByCustIDIn">
+  <part name="parameters" element="s3:ListSalesOrdersByCustID" />
+ </message>
+ <message name="ListSalesOrdersByCustIDOut">
+  <part name="parameters" element="s3:ListSalesOrdersByCustIDResponse" />
+ </message>
+ <message name="ListCustomersForcustomerIDIn">
+  <part name="parameters" element="s3:ListCustomersForcustomerID" />
+ </message>
+ <message name="ListCustomersForcustomerIDOut">
+  <part name="parameters" element="s3:ListCustomersForcustomerIDResponse" />
+ </message>
+ <message name="ListMultipleMBOIn">
+  <part name="parameters" element="s3:ListMultipleMBO" />
+ </message>
+ <message name="ListMultipleMBOOut">
+  <part name="parameters" element="s3:ListMultipleMBOResponse" />
+ </message>
+ <message name="SP_MultiResultSetIn">
+  <part name="parameters" element="s3:SP_MultiResultSet" />
+ </message>
+ <message name="SP_MultiResultSetOut">
+  <part name="parameters" element="s3:SP_MultiResultSetResponse" />
+ </message>
+ <message name="sp_createDepartment2In">
+  <part name="parameters" element="s3:sp_createDepartment2" />
+ </message>
+ <message name="sp_createDepartment2Out">
+  <part name="parameters" element="s3:sp_createDepartment2Response" />
+ </message>
+ <message name="sp_deleteDepartment2In">
+  <part name="parameters" element="s3:sp_deleteDepartment2" />
+ </message>
+ <message name="sp_deleteDepartment2Out">
+  <part name="parameters" element="s3:sp_deleteDepartment2Response" />
+ </message>
+ <message name="sp_updateDepartment2In">
+  <part name="parameters" element="s3:sp_updateDepartment2" />
+ </message>
+ <message name="sp_updateDepartment2Out">
+  <part name="parameters" element="s3:sp_updateDepartment2Response" />
+ </message>
+ <message name="listStatesIn">
+  <part name="parameters" element="s3:listStates" />
+ </message>
+ <message name="listStatesOut">
+  <part name="parameters" element="s3:listStatesResponse" />
+ </message>
+ <message name="listTerminated_employeesIn">
+  <part name="parameters" element="s3:listTerminated_employees" />
+ </message>
+ <message name="listTerminated_employeesOut">
+  <part name="parameters" element="s3:listTerminated_employeesResponse" />
+ </message>
+ <message name="deleteDepartmentIn">
+  <part name="parameters" element="s3:deleteDepartment" />
+ </message>
+ <message name="deleteDepartmentOut">
+  <part name="parameters" element="s3:deleteDepartmentResponse" />
+ </message>
+ <message name="updateDepartmentIn">
+  <part name="parameters" element="s3:updateDepartment" />
+ </message>
+ <message name="updateDepartmentOut">
+  <part name="parameters" element="s3:updateDepartmentResponse" />
+ </message>
+ <message name="createDepartmentIn">
+  <part name="parameters" element="s3:createDepartment" />
+ </message>
+ <message name="createDepartmentOut">
+  <part name="parameters" element="s3:createDepartmentResponse" />
+ </message>
+ <message name="multiplemboIn">
+  <part name="parameters" element="s3:multiplembo" />
+ </message>
+ <message name="multiplemboOut">
+  <part name="parameters" element="s3:multiplemboResponse" />
+ </message>
+ <message name="ListCust_AuthorizationIn">
+  <part name="parameters" element="s3:ListCust_Authorization" />
+ </message>
+ <message name="ListCust_AuthorizationOut">
+  <part name="parameters" element="s3:ListCust_AuthorizationResponse" />
+ </message>
+ <message name="multipleUserIn">
+  <part name="parameters" element="s3:multipleUser" />
+ </message>
+ <message name="multipleUserOut">
+  <part name="parameters" element="s3:multipleUserResponse" />
+ </message>
+ <message name="DeleteUserIn">
+  <part name="parameters" element="s3:DeleteUser" />
+ </message>
+ <message name="DeleteUserOut">
+  <part name="parameters" element="s3:DeleteUserResponse" />
+ </message>
+ <message name="UpdateUserIn">
+  <part name="parameters" element="s3:UpdateUser" />
+ </message>
+ <message name="UpdateUserOut">
+  <part name="parameters" element="s3:UpdateUserResponse" />
+ </message>
+ <message name="InsertUserIn">
+  <part name="parameters" element="s3:InsertUser" />
+ </message>
+ <message name="InsertUserOut">
+  <part name="parameters" element="s3:InsertUserResponse" />
+ </message>
+ <message name="UserInfoByIDIn">
+  <part name="parameters" element="s3:UserInfoByID" />
+ </message>
+ <message name="UserInfoByIDOut">
+  <part name="parameters" element="s3:UserInfoByIDResponse" />
+ </message>
+ <message name="UserInfoListIn">
+  <part name="parameters" element="s3:UserInfoList" />
+ </message>
+ <message name="UserInfoListOut">
+  <part name="parameters" element="s3:UserInfoListResponse" />
+ </message>
+ <message name="SP_AllDataTypeIn">
+  <part name="parameters" element="s3:SP_AllDataType" />
+ </message>
+ <message name="SP_AllDataTypeOut">
+  <part name="parameters" element="s3:SP_AllDataTypeResponse" />
+ </message>
+ <message name="BonusAmountByEmpIDIn">
+  <part name="parameters" element="s3:BonusAmountByEmpID" />
+ </message>
+ <message name="BonusAmountByEmpIDOut">
+  <part name="parameters" element="s3:BonusAmountByEmpIDResponse" />
+ </message>
+ <message name="ListCustomersIn">
+  <part name="parameters" element="s3:ListCustomers" />
+ </message>
+ <message name="ListCustomersOut">
+  <part name="parameters" element="s3:ListCustomersResponse" />
+ </message>
+ <message name="SalesOrdersByCustomerIDIn">
+  <part name="parameters" element="s3:SalesOrdersByCustomerID" />
+ </message>
+ <message name="SalesOrdersByCustomerIDOut">
+  <part name="parameters" element="s3:SalesOrdersByCustomerIDResponse" />
+ </message>
+ <message name="ListSalesOrdersIn">
+  <part name="parameters" element="s3:ListSalesOrders" />
+ </message>
+ <message name="ListSalesOrdersOut">
+  <part name="parameters" element="s3:ListSalesOrdersResponse" />
+ </message>
+ <message name="ViewSalesDataIn">
+  <part name="parameters" element="s3:ViewSalesData" />
+ </message>
+ <message name="ViewSalesDataOut">
+  <part name="parameters" element="s3:ViewSalesDataResponse" />
+ </message>
+ <message name="listSalesOrderItemsIn">
+  <part name="parameters" element="s3:listSalesOrderItems" />
+ </message>
+ <message name="listSalesOrderItemsOut">
+  <part name="parameters" element="s3:listSalesOrderItemsResponse" />
+ </message>
+ <message name="createEmployeeIn">
+  <part name="parameters" element="s3:createEmployee" />
+ </message>
+ <message name="createEmployeeOut">
+  <part name="parameters" element="s3:createEmployeeResponse" />
+ </message>
+ <message name="ListEmployeesIn">
+  <part name="parameters" element="s3:ListEmployees" />
+ </message>
+ <message name="ListEmployeesOut">
+  <part name="parameters" element="s3:ListEmployeesResponse" />
+ </message>
+ <message name="ListDepartmentsIn">
+  <part name="parameters" element="s3:ListDepartments" />
+ </message>
+ <message name="ListDepartmentsOut">
+  <part name="parameters" element="s3:ListDepartmentsResponse" />
+ </message>
+ <message name="UpdateSalesOrderIn">
+  <part name="parameters" element="s3:UpdateSalesOrder" />
+ </message>
+ <message name="UpdateSalesOrderOut">
+  <part name="parameters" element="s3:UpdateSalesOrderResponse" />
+ </message>
+ <message name="CreateSalesOrderIn">
+  <part name="parameters" element="s3:CreateSalesOrder" />
+ </message>
+ <message name="CreateSalesOrderOut">
+  <part name="parameters" element="s3:CreateSalesOrderResponse" />
+ </message>
+ <message name="off_listDepartmentsIn">
+  <part name="parameters" element="s3:off_listDepartments" />
+ </message>
+ <message name="off_listDepartmentsOut">
+  <part name="parameters" element="s3:off_listDepartmentsResponse" />
+ </message>
+   <message name="FaultMessage">
+    <part name="error" element="s3:error" />
+   </message>
+ <portType name="SUPWebServicesSoapPort" >
+  <operation name="ImageList">
+   <input message="s3:ImageListIn" />
+   <output message="s3:ImageListOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="InsertImage">
+   <input message="s3:InsertImageIn" />
+   <output message="s3:InsertImageOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="SalesData">
+   <input message="s3:SalesDataIn" />
+   <output message="s3:SalesDataOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="ListSalesOrdersByCustID">
+   <input message="s3:ListSalesOrdersByCustIDIn" />
+   <output message="s3:ListSalesOrdersByCustIDOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="ListCustomersForcustomerID">
+   <input message="s3:ListCustomersForcustomerIDIn" />
+   <output message="s3:ListCustomersForcustomerIDOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="ListMultipleMBO">
+   <input message="s3:ListMultipleMBOIn" />
+   <output message="s3:ListMultipleMBOOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="SP_MultiResultSet">
+   <input message="s3:SP_MultiResultSetIn" />
+   <output message="s3:SP_MultiResultSetOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="sp_createDepartment2">
+   <input message="s3:sp_createDepartment2In" />
+   <output message="s3:sp_createDepartment2Out" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="sp_deleteDepartment2">
+   <input message="s3:sp_deleteDepartment2In" />
+   <output message="s3:sp_deleteDepartment2Out" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="sp_updateDepartment2">
+   <input message="s3:sp_updateDepartment2In" />
+   <output message="s3:sp_updateDepartment2Out" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="listStates">
+   <input message="s3:listStatesIn" />
+   <output message="s3:listStatesOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="listTerminated_employees">
+   <input message="s3:listTerminated_employeesIn" />
+   <output message="s3:listTerminated_employeesOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="deleteDepartment">
+   <input message="s3:deleteDepartmentIn" />
+   <output message="s3:deleteDepartmentOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="updateDepartment">
+   <input message="s3:updateDepartmentIn" />
+   <output message="s3:updateDepartmentOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="createDepartment">
+   <input message="s3:createDepartmentIn" />
+   <output message="s3:createDepartmentOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="multiplembo">
+   <input message="s3:multiplemboIn" />
+   <output message="s3:multiplemboOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="ListCust_Authorization">
+   <input message="s3:ListCust_AuthorizationIn" />
+   <output message="s3:ListCust_AuthorizationOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="multipleUser">
+   <input message="s3:multipleUserIn" />
+   <output message="s3:multipleUserOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="DeleteUser">
+   <input message="s3:DeleteUserIn" />
+   <output message="s3:DeleteUserOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="UpdateUser">
+   <input message="s3:UpdateUserIn" />
+   <output message="s3:UpdateUserOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="InsertUser">
+   <input message="s3:InsertUserIn" />
+   <output message="s3:InsertUserOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="UserInfoByID">
+   <input message="s3:UserInfoByIDIn" />
+   <output message="s3:UserInfoByIDOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="UserInfoList">
+   <input message="s3:UserInfoListIn" />
+   <output message="s3:UserInfoListOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="SP_AllDataType">
+   <input message="s3:SP_AllDataTypeIn" />
+   <output message="s3:SP_AllDataTypeOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="BonusAmountByEmpID">
+   <input message="s3:BonusAmountByEmpIDIn" />
+   <output message="s3:BonusAmountByEmpIDOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="ListCustomers">
+   <input message="s3:ListCustomersIn" />
+   <output message="s3:ListCustomersOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="SalesOrdersByCustomerID">
+   <input message="s3:SalesOrdersByCustomerIDIn" />
+   <output message="s3:SalesOrdersByCustomerIDOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="ListSalesOrders">
+   <input message="s3:ListSalesOrdersIn" />
+   <output message="s3:ListSalesOrdersOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="ViewSalesData">
+   <input message="s3:ViewSalesDataIn" />
+   <output message="s3:ViewSalesDataOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="listSalesOrderItems">
+   <input message="s3:listSalesOrderItemsIn" />
+   <output message="s3:listSalesOrderItemsOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="createEmployee">
+   <input message="s3:createEmployeeIn" />
+   <output message="s3:createEmployeeOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="ListEmployees">
+   <input message="s3:ListEmployeesIn" />
+   <output message="s3:ListEmployeesOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="ListDepartments">
+   <input message="s3:ListDepartmentsIn" />
+   <output message="s3:ListDepartmentsOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="UpdateSalesOrder">
+   <input message="s3:UpdateSalesOrderIn" />
+   <output message="s3:UpdateSalesOrderOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="CreateSalesOrder">
+   <input message="s3:CreateSalesOrderIn" />
+   <output message="s3:CreateSalesOrderOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+  <operation name="off_listDepartments">
+   <input message="s3:off_listDepartmentsIn" />
+   <output message="s3:off_listDepartmentsOut" />
+   <fault message="s3:FaultMessage" name="error" />
+  </operation>
+</portType>
+ <binding name="SUPWebServicesSoapBinding" type="s3:SUPWebServicesSoapPort">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+  <operation name="ImageList">
+   <soap:operation soapAction="http://servlet:8888/sampledb/ImageList" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="InsertImage">
+   <soap:operation soapAction="http://servlet:8888/sampledb/InsertImage" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="SalesData">
+   <soap:operation soapAction="http://servlet:8888/sampledb/SalesData" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="ListSalesOrdersByCustID">
+   <soap:operation soapAction="http://servlet:8888/sampledb/ListSalesOrdersByCustID" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="ListCustomersForcustomerID">
+   <soap:operation soapAction="http://servlet:8888/sampledb/ListCustomersForcustomerID" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="ListMultipleMBO">
+   <soap:operation soapAction="http://servlet:8888/sampledb/ListMultipleMBO" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="SP_MultiResultSet">
+   <soap:operation soapAction="http://servlet:8888/sampledb/SP_MultiResultSet" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="sp_createDepartment2">
+   <soap:operation soapAction="http://servlet:8888/sampledb/sp_createDepartment2" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="sp_deleteDepartment2">
+   <soap:operation soapAction="http://servlet:8888/sampledb/sp_deleteDepartment2" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="sp_updateDepartment2">
+   <soap:operation soapAction="http://servlet:8888/sampledb/sp_updateDepartment2" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="listStates">
+   <soap:operation soapAction="http://servlet:8888/sampledb/listStates" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="listTerminated_employees">
+   <soap:operation soapAction="http://servlet:8888/sampledb/listTerminated_employees" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="deleteDepartment">
+   <soap:operation soapAction="http://servlet:8888/sampledb/deleteDepartment" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="updateDepartment">
+   <soap:operation soapAction="http://servlet:8888/sampledb/updateDepartment" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="createDepartment">
+   <soap:operation soapAction="http://servlet:8888/sampledb/createDepartment" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="multiplembo">
+   <soap:operation soapAction="http://servlet:8888/sampledb/multiplembo" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="ListCust_Authorization">
+   <soap:operation soapAction="http://servlet:8888/sampledb/ListCust_Authorization" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="multipleUser">
+   <soap:operation soapAction="http://servlet:8888/sampledb/multipleUser" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="DeleteUser">
+   <soap:operation soapAction="http://servlet:8888/sampledb/DeleteUser" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="UpdateUser">
+   <soap:operation soapAction="http://servlet:8888/sampledb/UpdateUser" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="InsertUser">
+   <soap:operation soapAction="http://servlet:8888/sampledb/InsertUser" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="UserInfoByID">
+   <soap:operation soapAction="http://servlet:8888/sampledb/UserInfoByID" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="UserInfoList">
+   <soap:operation soapAction="http://servlet:8888/sampledb/UserInfoList" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="SP_AllDataType">
+   <soap:operation soapAction="http://servlet:8888/sampledb/SP_AllDataType" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="BonusAmountByEmpID">
+   <soap:operation soapAction="http://servlet:8888/sampledb/BonusAmountByEmpID" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="ListCustomers">
+   <soap:operation soapAction="http://servlet:8888/sampledb/ListCustomers" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="SalesOrdersByCustomerID">
+   <soap:operation soapAction="http://servlet:8888/sampledb/SalesOrdersByCustomerID" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="ListSalesOrders">
+   <soap:operation soapAction="http://servlet:8888/sampledb/ListSalesOrders" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="ViewSalesData">
+   <soap:operation soapAction="http://servlet:8888/sampledb/ViewSalesData" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="listSalesOrderItems">
+   <soap:operation soapAction="http://servlet:8888/sampledb/listSalesOrderItems" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="createEmployee">
+   <soap:operation soapAction="http://servlet:8888/sampledb/createEmployee" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="ListEmployees">
+   <soap:operation soapAction="http://servlet:8888/sampledb/ListEmployees" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="ListDepartments">
+   <soap:operation soapAction="http://servlet:8888/sampledb/ListDepartments" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="UpdateSalesOrder">
+   <soap:operation soapAction="http://servlet:8888/sampledb/UpdateSalesOrder" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="CreateSalesOrder">
+   <soap:operation soapAction="http://servlet:8888/sampledb/CreateSalesOrder" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+  <operation name="off_listDepartments">
+   <soap:operation soapAction="http://servlet:8888/sampledb/off/listDepartments" style="document" />
+   <input>
+    <soap:body use="literal" />
+   </input>
+   <output>
+    <soap:body use="literal" />
+   </output>
+   <fault name="error">
+    <soap:fault name="error" use="literal" />
+   </fault>
+  </operation>
+ </binding>
+<service name="SUPWebServices">
+ <port name="SUPWebServicesSoap"  binding="s3:SUPWebServicesSoapBinding">
+  <soap:address location="http://servlet:8888/sampledb/SUPWebServices" />
+  </port>
+ </service>
+</definitions>
+

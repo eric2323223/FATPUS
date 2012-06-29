@@ -1,0 +1,14 @@
+
+	
+//	var list = workflowMessage.getValues().getData("DepartmentDetail").getValue();
+	var dept_id =  workflowMessage.getValues().getData("Department_dept_id_attribKey").getValue();
+
+	if((currentScreenKey === "Departmentupdateinstance") && (actionName === 'Online_Request')) {
+		// conditional start screen uses this magic screen key and the empty action name.
+		if( conditionName === 'c1' && dept_id === '100') {
+			// custom logic
+			return true;
+		}
+	}
+	return false;
+	

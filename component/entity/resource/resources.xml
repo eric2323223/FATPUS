@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<resource type="ASA">
+		<host>localhost</host>
+		<port>5500</port>
+		<dbName>sampledb</dbName>
+		<login>dba</login>
+		<password>sql</password>
+		<driverClass>com.sybase.jdbc3.jdbc.SybDriver</driverClass>
+	</resource>
+	
+	<resource type="ASA">
+		<name>local_cdb</name>
+		<host>localhost</host>
+		<driverClass>com.sybase.jdbc3.jdbc.SybDriver</driverClass>
+		<driverName>Sybase JDBC Driver for Sybase ASA 12.x Default</driverName>
+		<port>5200</port>
+		<dbName>default</dbName>
+		<login>dba</login>
+		<password>sql</password>
+	</resource>
+	
+	<resource type="ASE">
+		<host>10.56.252.139</host>
+		<port>5000</port>
+		<dbName>master</dbName>
+		<driverName>Sybase JDBC Driver for Sybase ASE 15.x Default</driverName>
+		<login>sa</login>
+		<password></password>
+	</resource>
+	
+	<resource type="Oracle">
+		<host>10.35.180.50</host>
+		<port>1521</port>
+		<dbName>orcl</dbName>
+		<login>york</login>
+		<password>sybase</password>
+	</resource>
+	
+	<resource type="DB2">
+		<host>xian-suade-db2</host>
+		<port>50000</port>
+		<dbName>SAMPLE</dbName>
+		<login>administrator</login>
+		<password>s4pAdmin</password>
+	</resource>
+
+	<resource type="MSSQL">
+		<host>xian-suade-sql</host>
+		<port>1059</port>
+		<dbName>sup</dbName>
+		<login>sup</login>
+		<password>sybase</password>
+	</resource>
+	
+	<resource type="SAP">
+		<name>strlabpc3</name>
+		<appServer>strlabpc3.sybase.com</appServer>
+		<sysID></sysID>
+		<sysNumber>01</sysNumber>
+		<clientID>800</clientID>
+		<userName>qatest02</userName>
+		<password>qatest02</password>
+	</resource>
+	
+	<resource type="SAP">
+		<name>sap-crm04</name>
+		<appServer>sap-crm04.sybase.com</appServer>
+		<sysID>ECC</sysID>
+		<sysNumber>0</sysNumber>
+		<clientID>800</clientID>
+		<userName>qatest</userName>
+		<password>qatest</password>
+	</resource>
+	
+	<resource type="WS">
+		<url>http://itsm60demo/arsys/WSDL/public/itsm60demo/HelpDesk_Query_Service</url>
+	</resource>
+	
+	<resource type="WS">
+		<name>ECC</name>
+		<url>http://sap-crm04.sybase.com:8000/sap/bc/srt/wsdl/bndg_DF046F6876695EF18D75002219C2D78D/wsdl11/allinone/standard/document?sap-client=800</url>
+		<userName>qatest</userName>
+		<password>qatest</password>
+	</resource>
+	
+	<resource type="WS">
+		<name>ws_complex</name>
+		<url>http://suadetestpc4:8080/WSAllType/wsalltypeport?wsdl</url>
+	</resource>
+	
+	<resource type="WS">
+		<name>wscp</name>
+		<wsdl>C:\Documents and Settings\yangg\IBM\rationalsdp\workspace\UEP_ET\testscript\Workflow\WS\resource\SimpleArray.wsdl</wsdl>
+	</resource>
+	
+	<resource type="SSHCommand">
+		<name>pyinxp-vm</name>
+		<host>10.35.180.238</host>
+		<port>22</port>
+		<user>test</user>
+		<password>test</password>
+		<command>c:\androidSDK\R12\platform-tools\adb.exe devices</command>
+	</resource>
+
+</root>

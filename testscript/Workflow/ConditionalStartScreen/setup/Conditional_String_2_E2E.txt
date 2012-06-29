@@ -1,0 +1,11 @@
+if((currentScreenKey === SERVERINITIATEDFLAG) && (actionKeyName === '')) {
+		 var values = workflowMessage.getValues();
+	if (conditionName === 'number'){
+		 var strdata = values.getData("AllMBODataType_type_STRING_attribKey");
+		 var strvalue = strdata.getValue();		          
+		 var patrn=/^[0-9]*$/;
+		 if (patrn.exec(strvalue))
+		 return true
+	  }
+	}
+ return false;
